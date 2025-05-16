@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Plumber",
+    "description": "Fix all your home plumbing needs.",
+    "price": 500,
+    "location": "Pune"
+  },
+  {
+    "id": "2",
+    "name": "Electrician",
+    "description": "Wiring, fan, and appliance repair.",
+    "price": 400,
+    "location": "Mumbai"
+  },
+  {
+    "id": "3",
+    "name": "Beautician",
+    "description": "In-home beauty services for women.",
+    "price": 800,
+    "location": "Delhi"
+  }
+]

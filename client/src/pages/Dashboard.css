@@ -1,0 +1,30 @@
+.dashboard {
+  padding: 20px;
+  font-family: Arial;
+}
+
+.logout-btn {
+  float: right;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
