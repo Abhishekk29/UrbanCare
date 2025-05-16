@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h1>ServiceHub</h1>
+      <h1>Urban Company</h1>
       <div className="links">
         <Link to="/">Home</Link>
         {token ? (
