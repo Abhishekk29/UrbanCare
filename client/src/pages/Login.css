@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #fefce8, #fef9c3);
+  background: linear-gradient(135deg, #fefce8, white);
   font-family: 'Segoe UI', sans-serif;
 }
 
