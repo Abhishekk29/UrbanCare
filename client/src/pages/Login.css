@@ -3,7 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   background: linear-gradient(135deg, #fefce8, #fef9c3);
+=======
+  background: linear-gradient(135deg, #fefce8, white);
+>>>>>>> 0a6a7f1f99388198804d02135090880131d26478
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -45,7 +49,11 @@
 }
 
 .login-card button {
+<<<<<<< HEAD
   background-color: #ca8a04;
+=======
+  background-color: #042fca;
+>>>>>>> 0a6a7f1f99388198804d02135090880131d26478
   color: white;
   border: none;
   padding: 12px;
