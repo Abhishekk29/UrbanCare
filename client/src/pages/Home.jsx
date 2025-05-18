@@ -1,9 +1,17 @@
 import services from '../data/services.json';
 import './Home.css';
-
+import HeroSection from '../components/HomeSection';
+import ServiceCategories from '../components/ServiceCatergories';
+import ImageGallery from '../components/ImageGallery';
 function Home() {
   return (
     <div className="home">
+            <div>
+      <HeroSection />
+      <ServiceCategories />
+      <ImageGallery/>
+    </div>
+
       <h2>Available Services</h2>
       <div className="service-list">
         {services.map(service => (
