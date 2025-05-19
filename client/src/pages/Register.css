@@ -47,7 +47,7 @@
 }
 
 .register-card button {
-  background-color: #0c7ce2;
+  background-color: black;
   color: white;
   border: none;
   padding: 12px;
@@ -58,5 +58,5 @@
 }
 
 .register-card button:hover {
-  background-color: #0a5dc4;
+  background-color: #0ac43c;
 }
