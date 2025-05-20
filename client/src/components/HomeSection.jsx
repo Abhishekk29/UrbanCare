@@ -1,8 +1,8 @@
-import './HeroSection.css';
+import './HomeSection.css';
 
-function HeroSection() {
+function HomeSection() {
   return (
-    <div className="hero">
+    <div className="home1">
       <h1>What are you looking for?</h1>
       <input type="text" placeholder="Search for services..." />
       <p>From beauty and cleaning to plumbing and repair</p>
@@ -10,4 +10,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default HomeSection;

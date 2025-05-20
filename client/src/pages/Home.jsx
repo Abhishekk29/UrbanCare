@@ -1,13 +1,13 @@
 import services from '../data/services.json';
 import './Home.css';
-import HeroSection from '../components/HomeSection';
+import HomeSection from '../components/HomeSection';
 import ServiceCategories from '../components/ServiceCatergories';
 import ImageGallery from '../components/ImageGallery';
 function Home() {
   return (
     <div className="home">
             <div>
-      <HeroSection />
+      <HomeSection />
       <ServiceCategories />
       <ImageGallery/>
     </div>
