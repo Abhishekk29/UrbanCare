@@ -3,8 +3,9 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
+import UserDashboard from './pages/UserDashboard';
+import ProviderDashboard from './pages/ProviderDashboard';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,23 +14,29 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* All pages use Layout by default */}
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route
-              path="dashboard"
+              path="dashboard/user"
               element={
                 <PrivateRoute>
-                  <Dashboard />
+                  <UserDashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="dashboard/provider"
+              element={
+                <PrivateRoute>
+                  <ProviderDashboard />
                 </PrivateRoute>
               }
             />
           </Route>
         </Routes>
       </Router>
-
       <ToastContainer position="top-right" />
     </>
   );

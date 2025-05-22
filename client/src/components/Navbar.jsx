@@ -1,10 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
+import { useTheme } from '../context/ThemeContext';
+import { Sun, Moon } from 'lucide-react';
 
 function Navbar() {
   const { token, logout } = useAuth();
   const navigate=useNavigate();
+  const { dark, toggleTheme } = useTheme();
   const handleclick=()=>{
     navigate('/');
   };
@@ -28,7 +31,11 @@ function Navbar() {
             <Link to="/register">Register</Link>
           </>
         )}
+        <button className="theme-toggle" onClick={toggleTheme}>
+        {dark ? <Sun size={18} /> : <Moon size={18} />}
+      </button>
       </div>
+
     </nav>
   );
 }

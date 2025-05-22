@@ -58,3 +58,7 @@
 .login-card button:hover {
   background-color: #0ac43c;
 }
+.home {
+  background: var(--bg-color);   /* ✅ themed */
+  color: var(--text-color);
+}
