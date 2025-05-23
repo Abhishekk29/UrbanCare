@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import api from '../services/api';
-import './Login.css';
 import { toast } from 'react-toastify';
-import { LogIn } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { LogIn } from 'lucide-react';
+import './Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -16,21 +16,25 @@ function Login() {
     e.preventDefault();
     try {
       const res = await api.post('/auth/login', { email, password });
-      login(res.data.token); // store token in context + localStorage
-      toast.success('Login successful!');
-      navigate('/dashboard');
+      const token = res.data.token;
+      login(token);
+
+      // Decode role from JWT
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const role = payload.role;
+
+      // Navigate based on role
+      navigate(`/dashboard/${role}`);
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Invalid email or password');
+      console.error(err);
+      toast.error(err.response?.data?.message || 'Login failed');
     }
   };
 
   return (
     <div className="login-container">
       <form className="login-card" onSubmit={handleLogin}>
-        <div className="header">
-          <LogIn size={32} strokeWidth={2.5} />
-          <h2>Welcome Back</h2>
-        </div>
+        <h2>Login</h2>
         <input
           type="email"
           placeholder="Email"

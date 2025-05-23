@@ -1,6 +1,8 @@
 .home {
   padding: 20px;
   font-family: Arial;
+  background: var(--bg-color);   /* ✅ themed */
+  color: var(--text-color);
 }
 
 .service-list {
