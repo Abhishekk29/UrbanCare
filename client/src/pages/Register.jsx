@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import './Register.css';
 import { toast } from 'react-toastify';
-import { UserPlus } from 'lucide-react';
+import './Register.css';
 
 function Register() {
   const [form, setForm] = useState({
@@ -12,24 +12,23 @@ function Register() {
     role: 'user'
   });
 
+  const navigate = useNavigate();
+
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post('/auth/register', form);
-      toast.success('Registration successful!');
+      await api.post('/auth/register', form);
+      toast.success('Registered successfully. You can now log in.');
+      navigate('/login');
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Registration failed!');
+      toast.error(err.response?.data?.message || 'Registration failed');
     }
   };
 
   return (
     <div className="register-container">
       <form className="register-card" onSubmit={handleRegister}>
-        <div className="header">
-          <UserPlus size={32} strokeWidth={2.5} />
-          <h2>Create Account</h2>
-        </div>
-
+        <h2>Create an Account</h2>
         <input
           type="text"
           placeholder="Full Name"
