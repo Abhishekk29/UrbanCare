@@ -16,3 +16,44 @@
   max-width: 400px;
   width: 100%;
 }
+.booking-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.dashboard button {
+  margin-top: 1rem;
+  padding: 10px 16px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.role-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 1rem;
+}
+
+.appointments-btn {
+  padding: 8px 14px;
+  background-color: #2ecc71;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.appointments-btn:hover {
+  background-color: #27ae60;
+}
+

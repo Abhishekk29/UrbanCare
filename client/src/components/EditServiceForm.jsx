@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
 import { toast } from 'react-toastify';
-import './ServiceForm.css'; // reuse existing styles
+import './ServiceForm.css';
 
 function EditServiceForm({ service, onClose, onUpdated }) {
   const [form, setForm] = useState(service);
+  const [closing, setClosing] = useState(false); // 👈 new
 
   useEffect(() => {
     setForm(service);
@@ -19,16 +20,24 @@ function EditServiceForm({ service, onClose, onUpdated }) {
     try {
       await api.put(`/services/${service._id}`, form);
       toast.success('Changes updated successfully ✅');
-      onUpdated(); // refresh list
-      onClose();   // close modal
+      onUpdated();
+      handleClose();
     } catch (err) {
       toast.error('Update failed');
     }
   };
 
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => onClose(), 300); // ⏳ wait for animation
+  };
+
   return (
-    <div className="modal-overlay">
-      <div className="modal-card">
+    <div className="modal-overlay" onClick={handleClose}>
+      <div
+        className={`modal-card ${closing ? 'slide-out' : ''}`}
+        onClick={e => e.stopPropagation()}
+      >
         <h2>Edit Service</h2>
         <form onSubmit={handleSubmit} className="form-group">
           <label>Service Name</label>
@@ -48,7 +57,7 @@ function EditServiceForm({ service, onClose, onUpdated }) {
 
           <div className="edit-buttons">
             <button type="submit">Save Changes</button>
-            <button type="button" onClick={onClose} className="cancel-btn">Cancel</button>
+            <button type="button" onClick={handleClose} className="cancel-btn">Cancel</button>
           </div>
         </form>
       </div>

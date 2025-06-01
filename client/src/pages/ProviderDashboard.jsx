@@ -4,10 +4,12 @@ import ServiceForm from '../components/ServiceForm';
 import { toast } from 'react-toastify';
 import './Dashboard.css';
 import EditServiceForm from '../components/EditServiceForm';
+import { useNavigate } from 'react-router-dom';
 
 function ProviderDashboard() {
   const [user, setUser] = useState(null);
   const [services, setServices] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadUser();
@@ -59,13 +61,21 @@ const [editing, setEditing] = useState(null); // stores the service being edited
   return (
     <div className="dashboard-container">
       <div className="dashboard">
-        <h2>Welcome, {user.name} 👋</h2>
+  <h2>Welcome, {user.name} 👋</h2>
         <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Role:</strong> {user.role}</p>
 
-        <hr style={{ margin: '1rem 0' }} />
+  <p><strong>Role:</strong> {user.role}</p>
+  <div className="role-actions">
+  <button className="appointments-btn" onClick={() => navigate('/dashboard/provider/appointments')}>
+    View Appointments
+  </button>
+</div>
 
-        <ServiceForm onCreated={() => fetchMyServices(user._id)} />
+<hr style={{ margin: '1rem 0' }} />
+
+<ServiceForm onCreated={() => fetchMyServices(user._id)} />
+
+
 
         <h3>Your Services</h3>
         <div className="service-list">
