@@ -1,6 +1,8 @@
 .home {
   padding: 20px;
   font-family: Arial;
+  background: var(--bg-color);   /* ✅ themed */
+  color: var(--text-color);
 }
 
 .service-list {
@@ -27,7 +29,7 @@
 
 .card button {
   margin-top: 10px;
-  background-color: #0c7ce2;
+  background-color: black;
   color: white;
   border: none;
   padding: 8px 12px;

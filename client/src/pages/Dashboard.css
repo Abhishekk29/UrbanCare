@@ -1,30 +1,18 @@
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 32vh;
+  background: #f9fafb;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 .dashboard {
-  padding: 20px;
-  font-family: Arial;
-}
-
-.logout-btn {
-  float: right;
-  background-color: #c0392b;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f4f4f4;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   text-align: left;
+  max-width: 400px;
+  width: 100%;
 }

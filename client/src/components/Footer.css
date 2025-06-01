@@ -1,0 +1,73 @@
+.footer {
+  background-color: #f9fafb;
+  padding: 40px 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #111827;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 30px;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  margin: 20px 0;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-col ul li:hover {
+  text-decoration: underline;
+}
+
+.social .icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.social svg {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.social svg:hover {
+  background: #e5e7eb;
+}
+
+.store-buttons img {
+  width: 130px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
