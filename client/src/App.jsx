@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute';
 import UserDashboard from './pages/UserDashboard';
 import ProviderDashboard from './pages/ProviderDashboard';
 import { ToastContainer } from 'react-toastify';
+import ProviderAppointments from './pages/ProviderAppointments';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -45,6 +46,14 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route
+  path="dashboard/provider/appointments"
+  element={
+    <PrivateRoute>
+      <ProviderAppointments />
+    </PrivateRoute>
+  }
+/>
           </Route>
         </Routes>
       </Router>

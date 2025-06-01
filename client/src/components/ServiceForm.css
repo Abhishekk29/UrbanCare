@@ -109,3 +109,38 @@
   background-color: #eee;
   color: #333;
 }
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.modal-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px 0 0 12px;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  right: 0;
+  top: 0;
+  animation: slideInFromRight 0.4s ease forwards;
+  overflow-y: auto;
+}
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.modal-card.slide-out {
+  animation: slideOutToRight 0.3s ease forwards;
+}
