@@ -8,7 +8,11 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
+const serviceRoutes = require('./routes/serviceRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
 
+app.use('/api/services', serviceRoutes);
+app.use('/api/bookings', bookingRoutes);
 // Routes
 app.use('/api/auth', authRoutes);
 
