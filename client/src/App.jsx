@@ -10,6 +10,17 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const token = localStorage.getItem('token');
+  let role = null;
+
+  if (token) {
+    try {
+      const decoded = JSON.parse(atob(token.split('.')[1]));
+      role = decoded.role;
+    } catch (err) {
+      console.error('Invalid token');
+    }
+  }
   return (
     <>
       <Router>

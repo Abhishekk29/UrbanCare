@@ -15,3 +15,5 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+export const updateService = (id, data) => api.put(`/services/${id}`, data);
+export const deleteService = (id) => api.delete(`/services/${id}`);
