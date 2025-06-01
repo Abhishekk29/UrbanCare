@@ -9,11 +9,7 @@ function Navbar() {
   const navigate = useNavigate();
   const { dark, toggleTheme } = useTheme();
 
-  const handleLogoClick = () => {
-    navigate('/');
-  };
-
-  // Decode role from JWT token if logged in
+  // ✅ Decode role from JWT token
   let role = null;
   if (token) {
     try {
@@ -24,12 +20,16 @@ function Navbar() {
     }
   }
 
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
       <img
         style={{ cursor: 'pointer' }}
         onClick={handleLogoClick}
-        alt="Navbar"
+        alt="Logo"
         src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1687285683825-e6cf23.jpeg"
       />
 
@@ -38,8 +38,12 @@ function Navbar() {
 
         {token ? (
           <>
-            {/* Dynamically generate dashboard link */}
-            <Link to={`/dashboard/${role}`}>Dashboard</Link>
+            {role === 'user' && (
+              <Link to="/dashboard/user">Dashboard</Link>
+            )}
+            {role === 'provider' && (
+              <Link to="/dashboard/provider">Dashboard</Link>
+            )}
             <button onClick={logout}>Logout</button>
           </>
         ) : (
