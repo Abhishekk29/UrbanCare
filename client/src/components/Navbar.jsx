@@ -27,10 +27,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <img
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer', height: '130px', objectFit: 'contain'  }}
         onClick={handleLogoClick}
         alt="Logo"
-        src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1687285683825-e6cf23.jpeg"
+        src="./UrbanCare_Logo (1).png"
       />
 
       <div className="links">
