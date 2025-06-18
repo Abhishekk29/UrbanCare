@@ -9,6 +9,8 @@ import ProviderDashboard from './pages/ProviderDashboard';
 import { ToastContainer } from 'react-toastify';
 import ProviderAppointments from './pages/ProviderAppointments';
 import 'react-toastify/dist/ReactToastify.css';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './pages/AdminLogin';
 
 function App() {
   const token = localStorage.getItem('token');
@@ -54,6 +56,12 @@ function App() {
     </PrivateRoute>
   }
 />
+<Route path="/admin" element={<AdminLogin />} />
+<Route path="/dashboard/admin" element={
+  <PrivateRoute>
+    <AdminDashboard />
+  </PrivateRoute>
+} />
           </Route>
         </Routes>
       </Router>

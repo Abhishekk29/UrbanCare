@@ -7,10 +7,12 @@ function ServiceForm({ onCreated }) {
   const [form, setForm] = useState({
     name: '',
     description: '',
-    category: '',
+    price: '',
     location: '',
-    price: ''
+    category: '', // dropdown now
   });
+
+  const categories = ['Plumbing', 'Electrician', 'Cleaning', 'Painting', 'AC Repair'];
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,25 +22,43 @@ function ServiceForm({ onCreated }) {
     e.preventDefault();
     try {
       await api.post('/services', form);
-      toast.success('Service created successfully');
-      setForm({ name: '', description: '', category: '', location: '', price: '' });
-      onCreated(); // 🔁 trigger reload in parent
+      toast.success('Service added!');
+      setForm({ name: '', description: '', price: '', location: '', category: '' });
+      onCreated();
     } catch (err) {
-      toast.error('Failed to create service');
+      toast.error('Failed to add service');
     }
   };
 
   return (
     <form className="service-form" onSubmit={handleSubmit}>
-      <h3>Add a New Service</h3>
-      <div className="form-group">
-        <input name="name" value={form.name} onChange={handleChange} placeholder="Service Name" required />
-        <textarea name="description" value={form.description} onChange={handleChange} placeholder="Description" required />
-        <input name="category" value={form.category} onChange={handleChange} placeholder="Category" required />
-        <input name="location" value={form.location} onChange={handleChange} placeholder="Location" required />
-        <input name="price" value={form.price} onChange={handleChange} type="number" placeholder="Price (₹)" required />
-        <button type="submit">Create Service</button>
-      </div>
+      <h3>Add New Service</h3>
+
+      <input name="name" placeholder="Service Name" value={form.name} onChange={handleChange} required />
+
+      <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} required />
+
+      <input name="price" placeholder="Price (₹)" type="number" value={form.price} onChange={handleChange} required />
+
+      <input name="location" placeholder="City (e.g. Mumbai)" value={form.location} onChange={handleChange} required />
+
+      <label htmlFor="category">Category:</label>
+<select
+  className="dropdown"
+  id="category"
+  name="category"
+  value={form.category}
+  onChange={handleChange}
+  required
+>
+  <option value="">-- Select Category --</option>
+  {categories.map(cat => (
+    <option key={cat} value={cat}>{cat}</option>
+  ))}
+</select>
+
+
+      <button type="submit">Add Service</button>
     </form>
   );
 }

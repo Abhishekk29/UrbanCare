@@ -1,7 +1,7 @@
 const Service = require('../models/Service');
 
 exports.getAllServices = async (req, res) => {
-  const services = await Service.find().populate('providerId', 'name');
+  const services = await Service.find({ status: 'approved' }).populate('providerId', 'name');
   res.json(services);
 };
 

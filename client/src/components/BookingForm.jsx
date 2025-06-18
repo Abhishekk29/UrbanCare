@@ -7,7 +7,8 @@ function BookingForm({ service, onClose }) {
   const [form, setForm] = useState({
     date: '',
     time: '',
-    location: '',
+    location: service.location || '', // auto-filled
+    fullAddress: '',
     notes: '',
   });
 
@@ -18,7 +19,6 @@ function BookingForm({ service, onClose }) {
   const validate = async () => {
     const now = new Date();
     const selectedDate = new Date(`${form.date}T${form.time}`);
-
     if (selectedDate < now) {
       toast.error('You cannot book in the past');
       return false;
@@ -52,7 +52,11 @@ function BookingForm({ service, onClose }) {
     try {
       await api.post('/bookings', {
         serviceId: service._id,
-        ...form,
+        date: form.date,
+        time: form.time,
+        location: form.location,
+        fullAddress: form.fullAddress,
+        notes: form.notes,
       });
       toast.success('Booking confirmed ✅');
       onClose();
@@ -73,8 +77,11 @@ function BookingForm({ service, onClose }) {
           <label>Time:</label>
           <input type="time" name="time" value={form.time} onChange={handleChange} required />
 
-          <label>Location:</label>
-          <input type="text" name="location" value={form.location} onChange={handleChange} required />
+          <label>Location (Auto-Filled):</label>
+          <input type="text" name="location" value={form.location} readOnly />
+
+          <label>Full Address:</label>
+          <textarea name="fullAddress" value={form.fullAddress} onChange={handleChange} required placeholder="House No, Street, Landmark, etc." />
 
           <label>Notes:</label>
           <textarea name="notes" value={form.notes} onChange={handleChange} placeholder="Any instructions?" />

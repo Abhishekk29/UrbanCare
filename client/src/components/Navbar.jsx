@@ -44,14 +44,20 @@ function Navbar() {
             {role === 'provider' && (
               <Link to="/dashboard/provider">Dashboard</Link>
             )}
+            {role === 'admin' && (
+  <Link to="/dashboard/admin">Dashboard</Link>
+            )}
+
             <button onClick={logout}>Logout</button>
           </>
         ) : (
           <>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
+             <Link to="/admin">Admin</Link>
           </>
         )}
+
 
         <button className="theme-toggle" onClick={toggleTheme}>
           {dark ? <Sun size={18} /> : <Moon size={18} />}
