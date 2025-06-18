@@ -56,4 +56,18 @@
 .appointments-btn:hover {
   background-color: #27ae60;
 }
+.card-actions button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card-actions button:hover {
+  background-color: #2980b9;
+}
 
