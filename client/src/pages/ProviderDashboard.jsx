@@ -3,7 +3,6 @@ import api from '../services/api';
 import ServiceForm from '../components/ServiceForm';
 import { toast } from 'react-toastify';
 import './Dashboard.css';
-import EditServiceForm from '../components/EditServiceForm';
 import { useNavigate } from 'react-router-dom';
 
 function ProviderDashboard() {
@@ -96,7 +95,6 @@ const [editing, setEditing] = useState(null); // stores the service being edited
 
                 <p><strong>Price:</strong> ₹{service.price}</p>
                  <div className="card-actions">
-      <button onClick={() => setEditing(service)}>Edit</button>
       <button onClick={() => handleDelete(service._id)}>Delete</button>
     </div>
               </div>
