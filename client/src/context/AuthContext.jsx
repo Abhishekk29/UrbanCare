@@ -1,3 +1,4 @@
+// src/context/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -8,7 +9,15 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      setUser({ email: 'mockuser@email.com', role: 'user' }); // mock user
+      try {
+        const decoded = JSON.parse(atob(token.split('.')[1]));
+        setUser(decoded); // ✅ extract user from JWT
+      } catch (err) {
+        console.error('Invalid token:', err);
+        logout();
+      }
+    } else {
+      setUser(null);
     }
   }, [token]);
 

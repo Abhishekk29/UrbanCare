@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import { toast } from 'react-toastify';
+import { UserPlus } from 'lucide-react';
 import './Register.css';
 
 function Register() {
@@ -28,7 +29,8 @@ function Register() {
   return (
     <div className="register-container">
       <form className="register-card" onSubmit={handleRegister}>
-        <h2>Create an Account</h2>
+
+        <h2> <UserPlus size={28} strokeWidth={2.5} /> Create an Account</h2>
         <input
           type="text"
           placeholder="Full Name"

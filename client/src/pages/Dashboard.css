@@ -70,4 +70,12 @@
 .card-actions button:hover {
   background-color: #2980b9;
 }
+button {
+  padding: 0.4rem 1rem;
+  margin-top: 0.5rem;
+}
+
+button:last-child {
+  margin-left: 0.5rem;
+}
 

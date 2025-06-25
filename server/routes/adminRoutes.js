@@ -2,19 +2,21 @@ const express = require('express');
 const router = express.Router();
 const { requireAuth } = require('../middleware/authMiddleware');
 const {
-  getAllServices,
-  updateServiceStatus,
   getAllProviders,
-  getAllBookings
+  getAllBookings,
+  getAllServices,
+  rejectService,
+  approveService
 } = require('../controllers/adminController');
+const requireAdmin = require('../middleware/requireAdmin');
 
-// Make all routes protected
-router.use(requireAuth);
+router.use(requireAuth);  // must be placed before any route
 
-router.get('/services', getAllServices);
-router.put('/services/:id/status', updateServiceStatus);
+router.get('/services',requireAuth, requireAdmin, getAllServices);
+router.patch('/services/:id/approve', requireAdmin, approveService);
+router.patch('/services/:id/reject',requireAuth, requireAdmin, rejectService);
+router.get('/providers', requireAdmin, getAllProviders);
+router.get('/bookings', requireAdmin, getAllBookings);
 
-router.get('/providers', getAllProviders);
-router.get('/bookings', getAllBookings);
 
 module.exports = router;

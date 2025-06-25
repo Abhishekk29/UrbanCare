@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import api from '../services/api';
 import { toast } from 'react-toastify';
+import { LogIn } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
@@ -29,7 +30,7 @@ function Login() {
 
       if (role === 'admin') {
         toast.error('Admins must log in from the Admin page.');
-        return; // ⛔ stop here
+        return;
       }
     } catch (err) {
       console.error('Invalid token decode:', err);
@@ -37,7 +38,7 @@ function Login() {
       return;
     }
 
-    login(token); // ✅ only if not admin
+    login(token);
     toast.success('Login successful');
 
     // Redirect based on role
@@ -61,7 +62,8 @@ function Login() {
   return (
     <div className="login-container">
       <form className="login-card" onSubmit={handleLogin}>
-        <h2>Login</h2>
+
+        <h2><LogIn size={22} strokeWidth={3} /> Login </h2>
         <input
           type="email"
           placeholder="Email"

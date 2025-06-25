@@ -13,11 +13,10 @@ app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
 const serviceRoutes = require('./routes/serviceRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
-
+// Routes
 app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
-app.use('/admin', adminRoutes);
-// Routes
+app.use('/api/admin', adminRoutes);
 app.use('/api/auth', authRoutes);
 
 // Connect to MongoDB
