@@ -3,7 +3,6 @@ import api from '../services/api';
 import ServiceForm from '../components/ServiceForm';
 import { toast } from 'react-toastify';
 import './Dashboard.css';
-import EditServiceForm from '../components/EditServiceForm';
 import { useNavigate } from 'react-router-dom';
 
 function ProviderDashboard() {
@@ -35,9 +34,9 @@ const [editing, setEditing] = useState(null); // stores the service being edited
 
   const fetchMyServices = async (providerId) => {
     try {
-      const res = await api.get('/services');
-      const filtered = res.data.filter(s => s.providerId?._id === user._id);
-      setServices(filtered);
+      const res = await api.get('/services/my');
+      setServices(res.data);
+
     } catch (err) {
       toast.error('Failed to load services');
     }
@@ -85,9 +84,17 @@ const [editing, setEditing] = useState(null); // stores the service being edited
                 <h3>{service.name}</h3>
                 <p>{service.description}</p>
                 <p><strong>Location:</strong> {service.location}</p>
+<p><strong>Status:</strong>
+  {service.rejected
+    ? 'Rejected ❌'
+    : service.approved
+    ? 'Approved ✅'
+    : 'Pending ⏳'}
+</p>
+
+
                 <p><strong>Price:</strong> ₹{service.price}</p>
                  <div className="card-actions">
-      <button onClick={() => setEditing(service)}>Edit</button>
       <button onClick={() => handleDelete(service._id)}>Delete</button>
     </div>
               </div>

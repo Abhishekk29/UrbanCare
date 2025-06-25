@@ -1,9 +1,28 @@
 const Service = require('../models/Service');
 
+// controllers/serviceController.js
+// Show only approved services for users/home page
 exports.getAllServices = async (req, res) => {
-  const services = await Service.find({ status: 'approved' }).populate('providerId', 'name');
-  res.json(services);
+  try {
+    const services = await Service.find({ approved: true })
+      .populate('providerId');
+    res.json(services);
+  } catch (err) {
+    console.error('Error fetching services:', err);
+    res.status(500).json({ message: 'Failed to load services' });
+  }
 };
+
+
+exports.getMyServices = async (req, res) => {
+  try {
+    const services = await Service.find({ providerId: req.user.id });
+    res.json(services); // includes rejected ones so provider knows
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch your services' });
+  }
+};
+
 
 exports.createService = async (req, res) => {
   const newService = await Service.create({ ...req.body, providerId: req.user.id });

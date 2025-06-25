@@ -1,3 +1,4 @@
+// Navbar.jsx
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
@@ -9,7 +10,6 @@ function Navbar() {
   const navigate = useNavigate();
   const { dark, toggleTheme } = useTheme();
 
-  // ✅ Decode role from JWT token
   let role = null;
   if (token) {
     try {
@@ -24,40 +24,37 @@ function Navbar() {
     navigate('/');
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
       <img
-        style={{ cursor: 'pointer', height: '130px', objectFit: 'contain'  }}
-        onClick={handleLogoClick}
-        alt="Logo"
-        src="./UrbanCare_Logo (1).png"
-      />
+  src="/UrbanCare.png"
+  alt="Logo"
+  style={{ cursor: 'pointer', height: '130px', objectFit: 'contain' }}
+  onClick={handleLogoClick}
+/>
 
       <div className="links">
         <Link to="/">Home</Link>
 
         {token ? (
           <>
-            {role === 'user' && (
-              <Link to="/dashboard/user">Dashboard</Link>
-            )}
-            {role === 'provider' && (
-              <Link to="/dashboard/provider">Dashboard</Link>
-            )}
-            {role === 'admin' && (
-  <Link to="/dashboard/admin">Dashboard</Link>
-            )}
-
-            <button onClick={logout}>Logout</button>
+            {role === 'user' && <Link to="/dashboard/user">Dashboard</Link>}
+            {role === 'provider' && <Link to="/dashboard/provider">Dashboard</Link>}
+            {role === 'admin' && <Link to="/dashboard/admin">Dashboard</Link>}
+            <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
           <>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
-             <Link to="/admin">Admin</Link>
+            <Link to="/admin">Admin</Link>
           </>
         )}
-
 
         <button className="theme-toggle" onClick={toggleTheme}>
           {dark ? <Sun size={18} /> : <Moon size={18} />}

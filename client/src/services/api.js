@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000',
   withCredentials: true,
 });
 
@@ -15,5 +15,6 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
 export const updateService = (id, data) => api.put(`/services/${id}`, data);
 export const deleteService = (id) => api.delete(`/services/${id}`);
