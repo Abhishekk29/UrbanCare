@@ -1,3 +1,4 @@
+// ServiceCategories.jsx
 import './ServiceCategories.css';
 
 const categories = [
@@ -6,11 +7,11 @@ const categories = [
   { name: 'Appliance Repair', image: '/Appliances.webp' },
 ];
 
-function ServiceCategories() {
+function ServiceCategories({ onCategoryClick }) {
   return (
     <div className="categories">
       {categories.map(cat => (
-        <div className="category-card" key={cat.name}>
+        <div className="category-card" key={cat.name} onClick={onCategoryClick}>
           <img src={cat.image} alt={cat.name} />
           <p>{cat.name}</p>
         </div>

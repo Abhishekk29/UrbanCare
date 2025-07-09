@@ -2,27 +2,73 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: #ffffff;
   padding: 10px 20px;
-  color: black;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar h1 {
-  margin: 0;
+.logo {
+  height: 80px;
+  cursor: pointer;
+  object-fit: contain;
 }
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .links a,
 .links button {
-  margin-left: 15px;
-  color: black;
   text-decoration: none;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+  color: #333;
   background: none;
   border: none;
   cursor: pointer;
-  font-weight: bold;
-  font-family: sans-serif;
+  transition: color 0.3s ease;
 }
 
-.links button:hover,
-.links a:hover {
-  text-decoration: underline;
+.links a:hover,
+.links button:hover {
+  color: #0077cc;
+}
+
+.theme-toggle {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+  }
+
+  .links.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
 }

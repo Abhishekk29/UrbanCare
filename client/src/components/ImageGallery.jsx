@@ -1,6 +1,6 @@
 import './ImageGallery.css';
 
-const galleryImages = ['/AC.webp', '/electrician.webp', '/haircut.jpg'];
+const galleryImages = ['/uc_haircut.jpg', '/uc1.jpg', '/uc2.jpg'];
 
 function ImageGallery() {
   return (

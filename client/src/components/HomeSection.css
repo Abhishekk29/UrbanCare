@@ -26,3 +26,62 @@
   font-size: 14px;
   margin-top: 8px;
 }
+.home-section {
+  text-align: center;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.home-section input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.clear-btn {
+  position: absolute;
+  top: 30%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 4px auto 0;
+  background: white;
+  border: 1px solid #ccc;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 6px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #e2e8f0;
+}

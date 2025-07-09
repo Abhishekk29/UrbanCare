@@ -37,16 +37,16 @@ function AdminDashboard() {
       toast.error('Approval failed');
     }
   };
-const handleReject = async (id) => {
-  try {
-    await api.patch(`/admin/services/${id}/reject`);
-    toast.success('Service rejected');
-    fetchData();
-  } catch(err) {
-    toast.error('Rejection failed');
-  }
-};
 
+  const handleReject = async (id) => {
+    try {
+      await api.patch(`/admin/services/${id}/reject`);
+      toast.success('Service rejected');
+      fetchData();
+    } catch (err) {
+      toast.error('Rejection failed');
+    }
+  };
 
   return (
     <div className="dashboard-container">
@@ -60,26 +60,57 @@ const handleReject = async (id) => {
             <p>{service.description}</p>
             <p><b>Provider:</b> {service.providerId?.name} ({service.providerId?.email})</p>
             <button onClick={() => handleApprove(service._id)}>Approve</button>
-<button onClick={() => handleReject(service._id)} style={{ marginLeft: '0.5rem', backgroundColor: 'crimson', color: 'white' }}>
-  Reject
-</button>
-
+            <button
+              onClick={() => handleReject(service._id)}
+              style={{ marginLeft: '0.5rem', backgroundColor: 'crimson', color: 'white' }}
+            >
+              Reject
+            </button>
           </div>
         ))}
 
         <h3>All Providers</h3>
-        {providers.map(p => (
-          <div key={p._id}>
-            {p.name} - {p.email}
-          </div>
-        ))}
+<table className="admin-providers-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {providers.map(p => (
+      <tr key={p._id}>
+        <td>{p.name}</td>
+        <td>{p.email}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 
         <h3>All Bookings</h3>
-        {bookings.map(b => (
-          <div key={b._id}>
-           <b> {b.userId?.name}</b> booked <b>{b.serviceId?.name}</b> from <b>{b.serviceId?.providerId?.name}</b> at <b>{b.serviceId?.location}.</b> <b>Status: {b.status}</b>
-          </div>
-        ))}
+        <table className="admin-bookings-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Service</th>
+              <th>Provider</th>
+              <th>Location</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings.map(b => (
+              <tr key={b._id}>
+                <td>{b.userId?.name}</td>
+                <td>{b.serviceId?.name}</td>
+                <td>{b.serviceId?.providerId?.name}</td>
+                <td>{b.serviceId?.location}</td>
+                <td><b>{b.status}</b></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

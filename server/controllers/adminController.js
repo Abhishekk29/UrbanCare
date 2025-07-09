@@ -23,7 +23,6 @@ exports.getAllServices = async (req, res) => {
 };
 
 
-
 // Approve service
 exports.approveService = async (req, res) => {
   const service = await Service.findByIdAndUpdate(

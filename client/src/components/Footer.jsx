@@ -54,8 +54,8 @@ function Footer() {
         </div>
     </div>
     <div className="footer-bottom">
-        <p>* As on May, 2025</p>
-        <p>© Copyright 2025 Urban Company Clone. All rights reserved.</p>
+        <p>* As on July, 2025</p>
+        <p>© Copyright 2025 Urban Care. All rights reserved.</p>
       </div>
     </footer>
   );

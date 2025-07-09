@@ -78,4 +78,52 @@ button {
 button:last-child {
   margin-left: 0.5rem;
 }
+.admin-bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.admin-bookings-table th,
+.admin-bookings-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.admin-bookings-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.admin-bookings-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.admin-bookings-table tr:hover {
+  background-color: #f1f1f1;
+}
+.admin-providers-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+}
+
+.admin-providers-table th,
+.admin-providers-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-providers-table th {
+  background-color: #0c4a6e;
+  color: white;
+}
+
+.admin-providers-table tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
 
