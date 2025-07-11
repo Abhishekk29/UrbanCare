@@ -1,4 +1,5 @@
 import './Footer.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import {
   Twitter,
   Facebook,
@@ -54,8 +55,13 @@ function Footer() {
         </div>
     </div>
     <div className="footer-bottom">
-        <p>* As on July, 2025</p>
         <p>© Copyright 2025 Urban Care. All rights reserved.</p>
+        <p>
+    Project by Abhishek Sharma |{' '}
+    <a href="https://github.com/Abhishekk29" target="_blank" rel="noopener noreferrer">
+      GitHub Profile <i className="fab fa-github" style={{ marginLeft: '5px' }}></i>
+    </a>
+  </p>
       </div>
     </footer>
   );
